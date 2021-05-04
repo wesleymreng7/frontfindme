@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useRef } from 'react'
+import { ThemeProvider, IconButton } from '@material-ui/core'
+import { CloseOutlined } from '@material-ui/icons'
+import { SnackbarProvider } from 'notistack'
+import Router from './common/Router'
 
 function App() {
+  const notistackRef = useRef()
+  const onClickDismiss = key => () => {
+    notistackRef.current.closeSnackbar(key)
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <ThemeProvider>
+      <SnackbarProvider
+        maxSnack={3}
+        ref={notistackRef}
+        action={key => (
+          <IconButton onClick={onClickDismiss(key)}>
+            <CloseOutlined style={{ color: '#FFF' }} />
+          </IconButton>
+        )}>
+        <Router />
+      </SnackbarProvider>
+    </ThemeProvider>
+  )
 }
 
-export default App;
+export default App

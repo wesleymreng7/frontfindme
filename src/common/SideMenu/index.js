@@ -220,30 +220,6 @@ export default function SideMenu(props) {
                     horizontal: 'center',
                 }}>
                 <List component='nav' aria-label='secondary mailbox folders'>
-                    <ListItem
-                        button
-                        onClick={() => {
-                            handleClose()
-                            history.push('/config')
-                        }}>
-                        <ListItemText primary='Configurar dados' />
-                    </ListItem>
-                    <ListItem
-                        button
-                        onClick={() => {
-                            handleClose()
-                            history.push('/config-password')
-                        }}>
-                        <ListItemText primary='Configurar senha' />
-                    </ListItem>
-                    <ListItem
-                        button
-                        onClick={() => {
-                            handleClose()
-                            window.location.href = process.env.REACT_APP_AFFILIATE_DOMAIN
-                        }}>
-                        <ListItemText primary='Programa de afiliados' />
-                    </ListItem>
                     <ListItem button onClick={() => alert('logout')}>
                         <ListItemText primary='Sair' />
                     </ListItem>

@@ -1,7 +1,7 @@
 import { lazy } from 'react'
 export default {
     WELCOME: {
-        PATH: '/welcome',
+        PATH: '/',
         COMPONENT: lazy(() => import('../pages/Welcome')),
         EXACT: true,
     },
@@ -16,7 +16,7 @@ export default {
         EXACT: true,
     },
     OS: {
-        PATH: '/',
+        PATH: '/os',
         COMPONENT: lazy(() => import('../pages/Os')),
         EXACT: true,
     },

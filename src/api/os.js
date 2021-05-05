@@ -27,6 +27,16 @@ const getAll = async (data) => {
     }
 }
 
+const getAllCurrentMonth = async (data) => {
+    try {
+        const response = await requests.get('order-services/month')
+        return response.data
+    } catch (error) {
+        if (error.response) return error.response.data
+    }
+}
+
 export default {
-    getAll
+    getAll,
+    getAllCurrentMonth
 }

@@ -35,6 +35,15 @@ const getAll = async () => {
   }
 }
 
+const getLastLocation = async () => {
+    try {
+      const response = await requests.get('contributors/last')
+      return response.data
+    } catch (error) {
+      if (error.response) return error.response.data
+    }
+  }
+
 const remove = async id => {
   try {
     const response = await requests.delete(`contributors/${id}`)
@@ -49,4 +58,5 @@ export default {
   update,
   getAll,
   remove,
+  getLastLocation
 }

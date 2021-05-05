@@ -54,7 +54,7 @@ const OS = () => {
                 clientId: filters.clientId,
                 contributorId: filters.contributorId,
                 startDate: filters.startDate,
-                endDate: filters.endDate || moment().format('YYYY-MM-DD'),
+                endDate: filters.endDate || moment().add('d', 1).format('YYYY-MM-DD'),
                 orderByDate: filters.orderByDate,
                 orderByClientId: filters.orderByClientId,
                 orderByContributorId: filters.orderByClientId,
